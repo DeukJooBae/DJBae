@@ -1,0 +1,44 @@
+Sub Batches_treaty_code()
+dim oldtime as single
+  program_num = 10
+  model_num = 40
+  oldtime = timer
+application.Screenupdating =False
+
+  for i = 0 to program_num =1
+  
+    worksheets("treaty_code").Range("H7").value = worksheets("PVFP_Before_Tax_and SM Compare").cells(16+i,3).value ' "수정전"에 프로그램명넣기
+    worksheets("treaty_code").Range("N7").value = worksheets("PVFP_Before_Tax_and SM Compare").cells(16+i,3).value ' "수정후"에프로그램명넣기
+    
+    worksheets("GoToAfm").cells(1,1+i) =  worksheets("PVFP_Before_Tax_and SM Compare").cells(16+i,3).value 'GoToAfm 시트 첫줄에 프로그램명 넣기
+    
+    m = 0 'm 초기화 (단,m은 오차가있는 에러코드 개수)
+    
+    for j = 0 to model_num -1
+      
+      worksheets("treaty_code").Range("H3").value = worksheets("PVFP_Before_Tax_and SM Compare").cells(15,6 + i).value ' "수정전"에 model명넣기
+      worksheets("treaty_code").Range("N3").value = worksheets("PVFP_Before_Tax_and SM Compare").cells(15,6 + i).value ' "수정후"에model램명넣기
+      
+      treaty_num = worksheets("Treaty_code").Range("c9").Value ' c9셀은 counta(c3:c1000000) - countif(c3:c1000000,#n/a)
+      
+      for k = 0 to treaty_num -1
+        if  (isnumeric(worksheets("Treaty_code").cells(11 + k, 5).value and isnumeric(worksheets("Treaty_code").cells(11 + k,6)value) then
+        
+          if Abs(worksheets("Treaty_code").cells(11 + k, 5).value > 1 or Abs(worksheets("Treaty_code").cells(11 + k, 6).value > 1  then
+              
+              m = m + 1 ' 차이가 1이상 나는항목들의 숫자를 체크
+              worksheets("GoToAfm")cells(2 + m,1 +i).value = worksheets("Treaty_code").cells(11 + k, 3).value
+          'else
+            'pass
+           end if
+        'else
+          'pass
+         end if
+       next
+      next
+    next
+application.screenupdating = true
+
+msgbox "작업에" & Format(Timer - oldtime , "#0.00")& "초가 소요되었습니다."
+
+end sub
