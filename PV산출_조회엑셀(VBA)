@@ -1,0 +1,36 @@
+Sub PV산출()
+'갱신구분 = 1
+worksheets("보험료").Range("H3") = 1
+'inforce_num은 csv에 들어있는 계약자데이터 수
+
+for i = 0 to inforce_num-1
+  worksheets("보험료").Range("H6").Value = Worksheets("csv").cells(3+i,15).value
+  worksheets("보험료").Range("H7").Value = Worksheets("csv").cells(3+i,16).value
+  worksheets("csv").cells(3+i,135).value = worksheets("보험료").Range("d24").value '순보험료 값 가져오기
+  worksheets("csv").cells(3+i,134).value = worksheets("보험료").Range("d34").value '영업보험료 값 가져오기
+  
+  worksheets("csv").cells(3+i,136).value = worksheets("준비금").Range("c15").value 'V0 값가져오기
+  worksheets("csv").cells(3+i,137).value = worksheets("준비금").Range("c16").value 'V12 값가져오기
+  worksheets("csv").cells(3+i,138).value = worksheets("준비금").Range("c17").value 'V24 값가져오기
+  worksheets("csv").cells(3+i,139).value = worksheets("준비금").Range("c18").value 'V36 값가져오기
+  worksheets("csv").cells(3+i,140).value = worksheets("준비금").Range("c19").value 'V48 값가져오기
+next
+
+'갱신구분 = 2
+worksheets("보험료").Range("H3") = 2
+'inforce_num은 csv에 들어있는 계약자데이터 수
+
+for i = 0 to inforce_num-1
+
+  worksheets("보험료").Range("H6").Value = Worksheets("csv").cells(3+i,15).value
+  worksheets("보험료").Range("H7").Value = Worksheets("csv").cells(3+i,16).value
+  
+  'worksheets("csv").cells(3+i,135).value = worksheets("보험료").Range("d24").value '순보험료 값 가져오기
+  'worksheets("csv").cells(3+i,134).value = worksheets("보험료").Range("d34").value '영업보험료 값 가져오기
+  
+  worksheets("csv").cells(3+i,136).value = worksheets("준비금").Range("c15").value 'V60 값가져오기
+  worksheets("csv").cells(3+i,137).value = worksheets("준비금").Range("c16").value 'V72 값가져오기
+  worksheets("csv").cells(3+i,138).value = worksheets("준비금").Range("c17").value 'V84 값가져오기
+  worksheets("csv").cells(3+i,139).value = worksheets("준비금").Range("c18").value 'V96 값가져오기
+  worksheets("csv").cells(3+i,140).value = worksheets("준비금").Range("c19").value 'V108 값가져오기
+ next 
