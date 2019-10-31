@@ -1,0 +1,10 @@
+sub 클리어()
+
+range("A3:I3").select
+Range(selection,selection.end(xlDown)).select
+selection.clearcontents
+Range("N3:N1000").select
+range(selelction, selection.End(xlDown)).select
+selection.clearContents
+
+End Sub
