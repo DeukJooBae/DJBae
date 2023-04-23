@@ -9,6 +9,20 @@
       gtag('js', new Date());
 
       gtag('config', 'G-9WXSX5LGSP');
+      
+      // 구글 애널리틱스 데이터 가져오기
+      gtag('event', 'page_view');
+
+      // 데이터가 로드된 후 방문자 수 표시
+      window.addEventListener('load', function() {
+        const visitorsElement = document.getElementById('visitors');
+        const visitors = window.gtag && window.gtag('get', 'UA-123456789-1', 'metric1');
+        if (visitors) {
+          visitorsElement.textContent = `오늘의 방문자: ${visitors[0]}`;
+        }
+      });
+      
+      
     </script>
     
     <link rel="stylesheet" href="style.css">
