@@ -1,7 +1,0 @@
-sub 중복제거()
-worksheets("GoToAfm").Range("A2:A1000").RemoveDuplicate Columns :=1, header := xlyes
-
-worksheets("GoToAfm").Range("B2:B1000").RemoveDuplicate Columns :=1, header := xlyes
-
-worksheets("GoToAfm").Range("A2:C1000").RemoveDuplicate Columns :=1, header := xlyes
-end sub
