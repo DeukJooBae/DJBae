@@ -1,0 +1,21 @@
+body {
+  background-color: yellow;
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+textarea {
+  width: 50%;
+  height: 200px;
+}
+
+button {
+  margin-top: 10px;
+}
+
+p#result {
+  font-weight: bold;
+}
